@@ -1,0 +1,29 @@
+  state = {
+    inputText: '',
+    list:[],
+    blue:"blue"
+  }
+handleChangeText = (e) => {
+    this.setState({inputText: e.target.value})
+  }
+  addTask(){
+    var array = this.state.list
+    array.push(this.state.inputText)
+    this.setState({
+      list: array,
+      inputText: ''
+    })
+  }
+  deleteArray(index){
+    var array = this.state.list
+    array.splice(index,1)
+    this.setState({
+      list:array
+    })
+  }
+
+______________________________________
+//add this event on HTML tags
+onChange={this.handleChangeText.bind(this)}
+
+onClick={this.addTask.bind(this)}
